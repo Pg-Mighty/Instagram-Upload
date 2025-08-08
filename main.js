@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const axios = require("axios")
 require('dotenv').config();
 
@@ -20,17 +18,24 @@ const body ={
 
 axios.post(url, body, { headers: header }).then((res)=>{
     container_id = res.data.id;
-    console.log(container_id);
-}).catch(err=>console.log(err.data));
+}).then(uploadVideo).catch(err=>console.log(err.data));
 
-/*
+
 
 async function uploadVideo(){
 
-    const upload_id = await axios.post(`https://rupload.facebook.com/v23.0/${appId}/media_publish`)
+     await axios.post(`https://graph.facebook.com/v23.0/${appId}/media_publish` ,
+         {
+         "creation_id": container_id
+     }, {headers:{
+
+         "Content-Type": "application/json",
+         "Authorization": `Bearer ${accessToken}`
+
+             }}).then(res=>console.log(res.data)).catch(err=>console.log(err.data));
+
 
 }
-*/
 
 
 
