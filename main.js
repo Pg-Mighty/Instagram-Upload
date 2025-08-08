@@ -3,14 +3,11 @@ const path = require('path');
 const axios = require("axios")
 require('dotenv').config();
 
-const videoPath =path.join(__dirname, 'video', 'reel.mp4');
-
-
 const accessToken = process.env.access_token;
 const appId = process.env.app_id;
 
 const url = `https://graph.facebook.com/v23.0/${appId}/media`;
-let container_url;
+let container_id;
 
 const header = {
     "Authorization": `Bearer ${accessToken}`,
@@ -23,11 +20,15 @@ const body ={
 }
 
 axios.post(url, body, { headers: header }).then((res)=>{
-    console.log(res.data);
-}).catch(err=>console.log(err.data));
+    container_id = res.data.id;
+}).then(uploadVideo).catch(err=>console.log(err.data));
 
 
+async function uploadVideo(){
 
+    const upload_id = await axios.post(`https://rupload.facebook.com/v23.0/${appId}/media_publish`)
+
+}
 
 
 
