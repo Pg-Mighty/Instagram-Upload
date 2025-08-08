@@ -19,45 +19,14 @@ const header = {
 
 const body ={
     "media_type": "REELS",
-    "upload_type": "resumable"
+    "video_url": "https://drive.usercontent.google.com/u/0/uc?id=1ApR_d2vPY1W9u2oEGe24Dk9yGkiDfCj0&export=download"
 }
 
-
-
-
 axios.post(url, body, { headers: header }).then((res)=>{
-    container_url = res.data.uri;
-    console.log(container_url);
+    console.log(res.data);
 }).catch(err=>console.log(err.data));
 
 
-
-
-
-
-
-/*
-    const metadata = fs.statSync(videoPath);
-    const vid_size = metadata.size;
-
-    const videoBuffer=  fs.readFileSync(videoPath).toString('binary');
-
-
-
-    container_url = "https://rupload.facebook.com/ig-api-upload/v23.0/18018571550756447";
-
-axios.post(container_url, videoBuffer, {
-        headers: {
-            "Authorization": `Bearer ${accessToken}`,
-            "offset": "0",
-            "file_size": `${vid_size}`
-        }
-    }).then((res) => {
-
-        console.log(res.data);
-    });
-
-*/
 
 
 
