@@ -1,5 +1,6 @@
-const axios = require("axios")
-require('dotenv').config();
+import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const accessToken = process.env.access_token;
 const appId = process.env.app_id;
@@ -24,17 +25,13 @@ axios.post(url, body, { headers: header }).then((res)=>{
 
 async function uploadVideo(){
 
-     await axios.post(`https://graph.facebook.com/v23.0/${appId}/media_publish` ,
-         {
-         "creation_id": container_id
-     }, {headers:{
-
+    const response = await axios.post(`https://graph.facebook.com/v23.0/${appId}/media_publish` , {"creation_id": container_id},
+         {headers:{
          "Content-Type": "application/json",
          "Authorization": `Bearer ${accessToken}`
+             }});
 
-             }}).then(res=>console.log(res.data)).catch(err=>console.log(err.data));
-
-
+        console.log(response.data);
 }
 
 
