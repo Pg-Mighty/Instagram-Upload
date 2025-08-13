@@ -11,6 +11,8 @@
   "keywords": [],
   "description": "",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.864.0",
+    "@aws-sdk/s3-request-presigner": "^3.864.0",
     "@google/genai": "^1.13.0",
     "axios": "^1.11.0",
     "dotenv": "^17.2.1",
