@@ -1,15 +1,32 @@
 import { GoogleGenAI } from "@google/genai";
+import fs from "fs";
+import env from "dotenv";
+env.config()
 
 const ai = new GoogleGenAI({
-    apiKey: "API_KEY",
+    apiKey: process.env.GEMINI_API_KEY,
 });
 
 async function main() {
-    const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: "Tell me how AI works in a few words",
+
+    let historyString = fs.readFileSync("history.txt").toString();
+    let history = JSON.parse(historyString);
+
+    const chat = await ai.chats.create({
+        model: 'gemini-2.5-flash',
+        history: history,
+
     });
-    console.log(response.text);
+   const res=  await chat.sendMessage({
+        message: "What is my api key?",
+        }
+
+    )
+    history = [...chat.getHistory(false)];
+    let historyJson = JSON.stringify(history,null,2);
+    await fs.writeFileSync("history.txt" , historyJson)
+
+    console.log(res.text);
 }
 
 await main();
