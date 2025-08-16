@@ -18,7 +18,13 @@ async function main() {
 
     });
    const res=  await chat.sendMessage({
-        message: "What is my api key?",
+        message: "This template uses placeholders that you have to customize.\n" +
+            "\n" +
+            "\"A photorealistic, miniature version of [Object], made as a photorealistic glass with colors representing real, is cut by a by a Kitchen knife.After Slicing the interior the left half Tumbles while the right half stands upright represent the core from which some substance of color [color] oozes out.\"\n" +
+            "\n" +
+            "Everytime I use the word \"Create\" give me a complete prompt that replaces the above template by using some different astronomical object of the universe and replace the [Object] with that of a particular object.\n" +
+            "\n" +
+            "Note: Choose some random planet, star, Black Holes or other Astronomical like: Asteroids, Galaxies bodies each time I prompt say \"Create\" just mention the prompt and nothing else.",
         }
 
     )
