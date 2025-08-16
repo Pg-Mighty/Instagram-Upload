@@ -1,9 +1,8 @@
 import puppet from "puppeteer";
 import path from "path";
-
 async function main() {
 
-    const prompt = "Cinematic & Detailed Version (Avocado Interior) This prompt adds more descriptive language, camera movement, and specifies a different fruit for a unique feel. The avocado pit is a great stand-in for the Earth's core.Extreme close-up, slow motion. A chef's knife glides smoothly through a miniature crystal globe of Planet Earth. The camera focuses on the blade as it cuts. The cross-section reveals the unexpected interior of a ripe avocado, with soft green flesh and a large brown seed at the center. Cinematic, shallow depth of field, ASMR-style satisfying video, dramatic studio lighting against a dark background."+"\n";
+    const prompt = "A photorealistic, miniature version of Saturn, made as a photorealistic glass with colors representing real, is cut by a by a Kitchen knife.After Slicing the interior the left half tummbels while the right half stands upright represent the core from which some substance oozes out."+"\n";
     const userDataDir = path.resolve(process.cwd(), 'myUserData');
     console.log(`Using user data directory: ${userDataDir}`);
 
@@ -15,23 +14,25 @@ async function main() {
 
     const page = await browser.newPage();
     await page.goto("https://gemini.google.com/app", {waitUntil: 'networkidle2'});
-    if(page.locator('button').filter((button)=> button.innerText === "Got it").visibility != null)
+    if(page.locator('button').filter((button)=> button.innerText === "Close").visibility != null)
     {
         await page.locator('button').filter((button)=> button.innerText === "Got it").click();
     }
+    await page.click('mat-icon[fonticon="page_info"]');
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    await page.click('div.gds-label-l.label');
+    await page.locator('p').fill(prompt);
 
-        await page.click('button[matripple][aria-pressed="false"]');
-        await page.locator('p').fill(prompt);
 
+    await page.on("response" , async(res) => {
+        const url = res.url();
+        if (url.includes("https://contribution.usercontent.google.com/download?c=")) {
+            // await res.text()
+        }
 
-        await page.on("response" , async(res) => {
-            const url = res.url();
-            if (url.includes("https://contribution.usercontent.google.com/download?c=")) {
-                // await res.text()
-            }
-
-        })
+    })
 
 }
+
 
 main();
