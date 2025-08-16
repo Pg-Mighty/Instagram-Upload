@@ -1,7 +1,10 @@
 import puppet from "puppeteer";
 import path from "path";
-async function main() {
 
+
+
+
+async function main() {
     const prompt = "A photorealistic, miniature version of Saturn, made as a photorealistic glass with colors representing real, is cut by a by a Kitchen knife.After Slicing the interior the left half tummbels while the right half stands upright represent the core from which some substance oozes out."+"\n";
     const userDataDir = path.resolve(process.cwd(), 'myUserData');
     console.log(`Using user data directory: ${userDataDir}`);
@@ -23,15 +26,21 @@ async function main() {
     await page.click('div.gds-label-l.label');
     await page.locator('p').fill(prompt);
 
+    await new Promise(resolve => setTimeout(resolve, 30000));
+   // await listen(page);
+}
 
+async function listen(page) {
+    let video = "";
     await page.on("response" , async(res) => {
         const url = res.url();
         if (url.includes("https://contribution.usercontent.google.com/download?c=")) {
-            // await res.text()
+            video= await res.text()
         }
 
     })
 
+    return video;
 }
 
 
