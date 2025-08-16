@@ -8,8 +8,6 @@ const appId = process.env.app_id;
 const url = `https://graph.facebook.com/v23.0/${appId}/media`;
 let container_id;
 
-
-
 const header = {
     "Authorization": `Bearer ${accessToken}`
 }
