@@ -35,7 +35,7 @@ async function main() {
     let videoBase64 = await listen(page);
     console.log("✅ Video received. Length:", videoBase64.length);
 
-    // Save to file
+    
     const videoBuffer = Buffer.from(videoBase64, "base64");
     console.log("🎥 Video saved as output.mp4");
 
@@ -53,7 +53,7 @@ async function main() {
          const handler = async response => {
              if (response.url().includes("https://contribution.usercontent.google.com/download?c=")) {
                  clearTimeout(timeout);
-                 page.off("response", handler); 
+                 page.off("response", handler);
 
                  try {
                      const buffer = await response.buffer();
