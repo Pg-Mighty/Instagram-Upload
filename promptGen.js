@@ -22,7 +22,7 @@ async function main() {
             "\n" +
             "\"A photorealistic, miniature version of [Object], made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color [color] and [color] oozes out.\"\n" +
             "\n" +
-            "Everytime I use the word \"Create\" give me a complete prompt that replaces the above template by using some different astronomical object of the universe and replace the [Object] with that of a particular object.\n" +
+            "Evrytime I use the word \"Create\" give me a complete prompt that replaces the above template by using some different astronomical object of the universe and replace the [Object] with that of a particular object.\n" +
             "\n" +
             "Note: Choose some random planet, star, Black Holes or other Astronomical like: Asteroids, Galaxies bodies each time I prompt say \"Create\" just mention the prompt and nothing else.",
         }
