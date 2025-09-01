@@ -25,33 +25,47 @@ async function main() {
     await page.click('mat-icon[fonticon="page_info"]');
     await new Promise(resolve => setTimeout(resolve, 1000));
     await page.click('div.gds-label-l.label');
+    await new Promise(resolve => setTimeout(resolve, 50000));
+
     await page.locator('p').fill(prompt);
 
 
     await new Promise(resolve => setTimeout(resolve, 50000));
-    let video = await listen(page);
-    console.log(video);
-   await browser.close();
+
+    let videoBase64 = await listen(page);
+    console.log("✅ Video received. Length:", videoBase64.length);
+
+    // Save to file
+    const videoBuffer = Buffer.from(videoBase64, "base64");
+    console.log("🎥 Video saved as output.mp4");
+
+    await browser.close();
 }
 
 
  function listen(page) {
 
-    return new Promise((resolve, reject) => {
-        const timeout = setTimeout(() => {
-            reject(new Error("Timeout 2min"))
-        }, 120000);
+     return new Promise((resolve, reject) => {
+         const timeout = setTimeout(() => {
+             reject(new Error("Timeout 2min"))
+         }, 120000);
 
-        const response =  async response => {
-            if (response.url().includes("https://contribution.usercontent.google.com/download?c=")) {
-                clearTimeout(timeout);
-                resolve(response.text());
-            }
-        };
-        page.on("response", response);
+         const handler = async response => {
+             if (response.url().includes("https://contribution.usercontent.google.com/download?c=")) {
+                 clearTimeout(timeout);
+                 page.off("response", handler); 
 
-    });
-
+                 try {
+                     const buffer = await response.buffer();
+                     const base64 = buffer.toString("base64");
+                     resolve(base64);
+                 } catch (err) {
+                     reject(err);
+                 }
+             }
+         };
+         page.on("response", handler);
+     });
 
 }
 main();
