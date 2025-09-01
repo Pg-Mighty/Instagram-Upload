@@ -20,7 +20,7 @@ async function main() {
    const res=  await chat.sendMessage({
         message: "This template uses placeholders that you have to customize.\n" +
             "\n" +
-            "\"A photorealistic, miniature version of [Object] made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color [color] and [color] oozes out.\"\n" +
+            "\"A photorealistic, miniature version of [Object], made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color [color] and [color] oozes out.\"\n" +
             "\n" +
             "Everytime I use the word \"Create\" give me a complete prompt that replaces the above template by using some different astronomical object of the universe and replace the [Object] with that of a particular object.\n" +
             "\n" +
