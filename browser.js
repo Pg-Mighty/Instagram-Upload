@@ -1,9 +1,9 @@
 import puppet from "puppeteer";
 import path from "path";
+import upload from "./awsupload.js";
 
 
-async function main() {
-    const prompt = "A photorealistic, miniature version of Earth, made as a photorealistic glass with colors representing real, is cut by a by a Kitchen knife.After Slicing the interior the left half tummbels while the right half stands upright represent the core from which some substance oozes out."+"\n";
+async function run(prompt) {
     const userDataDir = path.resolve(process.cwd(), 'myUserData');
     console.log(`Using user data directory: ${userDataDir}`);
 
@@ -15,29 +15,26 @@ async function main() {
 
     const page = await browser.newPage();
     await page.goto("https://gemini.google.com/app", {waitUntil: 'networkidle2'});
-    if(page.locator('button').filter((button)=> button.innerText === "Close").visibility != null)
-    {
-        await page.locator('button').filter((button)=> button.innerText === "Got it").click();
-    }
-
     new Promise((resolve)=> setTimeout(resolve,10000));
+
+    // Annoying popup
+    if(page.locator('::-p-text(No, thanks)')){
+        await page.click('::-p-text(No, thanks)');
+    }
 
     await page.click('mat-icon[fonticon="page_info"]');
     await new Promise(resolve => setTimeout(resolve, 1000));
-    await page.click('div.gds-label-l.label');
-    await new Promise(resolve => setTimeout(resolve, 50000));
-
+    await page.click('::-p-text(Videos with Veo)');
     await page.locator('p').fill(prompt);
 
 
     await new Promise(resolve => setTimeout(resolve, 50000));
 
     let videoBase64 = await listen(page);
-    console.log("✅ Video received. Length:", videoBase64.length);
 
-    
-    const videoBuffer = Buffer.from(videoBase64, "base64");
-    console.log("🎥 Video saved as output.mp4");
+    const videoBuffer = Buffer.from(videoBase64, "base64");////    THis Line
+
+   upload(videoBuffer);
 
     await browser.close();
 }
@@ -68,4 +65,4 @@ async function main() {
      });
 
 }
-main();
+export default run;

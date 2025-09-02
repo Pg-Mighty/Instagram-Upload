@@ -1,12 +1,17 @@
 import {S3Client , PutObjectCommand} from "@aws-sdk/client-s3"
 import env from "dotenv"
-import fs from "fs"
+import init from "./main.js";
 
-//const file = fs.readFileSync("history.txt").toString();
-const buffer = Buffer.from(file, "base64");
-env.config()
+env.config();
 
-async function putObject() {
+function upload(videoBuffer) {
+    const buffer = Buffer.from(videoBuffer, "base64");
+    putObject(buffer);
+}
+
+
+
+async function putObject(buffer) {
     const params = {
         Bucket: process.env.BUCKET_NAME,
         Key: "Reel.mp4",
@@ -24,11 +29,10 @@ async function putObject() {
 
 
     const putConfig = new PutObjectCommand(params)
-
-
-
     await client.send(putConfig);
+    init();
 
 }
 
-putObject();
+export default upload;
+
