@@ -1,6 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import fs from "fs";
 import env from "dotenv";
+import run from "./browser.js";
 env.config()
 
 const ai = new GoogleGenAI({
@@ -18,13 +19,7 @@ async function main() {
 
     });
    const res=  await chat.sendMessage({
-        message: "This template uses placeholders that you have to customize.\n" +
-            "\n" +
-            "\"A photorealistic, miniature version of [Object], made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color [color] and [color] oozes out.\"\n" +
-            "\n" +
-            "Everytime I use the word \"Create\" give me a complete prompt that replaces the above template by using some different astronomical object of the universe and replace the [Object] with that of a particular object.\n" +
-            "\n" +
-            "Note: Choose some random planet, star, Black Holes or other Astronomical like: Asteroids, Galaxies bodies each time I prompt say \"Create\" just mention the prompt and nothing else.",
+        message: "Create",
         }
 
     )
@@ -32,7 +27,8 @@ async function main() {
     let historyJson = JSON.stringify(history,null,2);
     await fs.writeFileSync("history.txt" , historyJson)
 
-    console.log(res.text);
+    await run(res.text+ "\n" );
+    setTimeout(main, 1000*60*60*9);
 }
 
 await main();
