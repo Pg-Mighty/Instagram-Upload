@@ -18,25 +18,28 @@ async function run(prompt) {
     new Promise((resolve)=> setTimeout(resolve,10000));
 
     // Annoying popup
-    if(page.locator('::-p-text(No, thanks)')){
-        await page.click('::-p-text(No, thanks)');
+    try {
+        if (page.locator('::-p-text(No, thanks)')) {
+            await page.click('::-p-text(No, thanks)');
+        }
+    }catch(e) {
+
+        await page.click('mat-icon[fonticon="page_info"]');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        await page.click('::-p-text(Create videos with Veo)');
+        await page.locator('p').fill(prompt);
+
+
+        await new Promise(resolve => setTimeout(resolve, 50000));
+
+        let videoBase64 = await listen(page);
+
+        const videoBuffer = Buffer.from(videoBase64, "base64");////    THis Line
+
+        upload(videoBuffer);
+
+        await browser.close();
     }
-
-    await page.click('mat-icon[fonticon="page_info"]');
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    await page.click('::-p-text(Videos with Veo)');
-    await page.locator('p').fill(prompt);
-
-
-    await new Promise(resolve => setTimeout(resolve, 50000));
-
-    let videoBase64 = await listen(page);
-
-    const videoBuffer = Buffer.from(videoBase64, "base64");////    THis Line
-
-   upload(videoBuffer);
-
-    await browser.close();
 }
 
 
