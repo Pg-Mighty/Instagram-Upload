@@ -4,11 +4,11 @@ dotenv.config();
 
 const accessToken = process.env.access_token;
 const appId = process.env.app_id;
-
-const url = `https://graph.facebook.com/v23.0/${appId}/media`;
 let container_id;
 
 function init() {
+    const url = `https://graph.facebook.com/v23.0/${appId}/media`;
+
     const header = {
         "Authorization": `Bearer ${accessToken}`
     }
@@ -46,7 +46,6 @@ function init() {
 
 
     }
-
 
 export default init;
 
