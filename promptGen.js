@@ -1,7 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import fs from "fs";
 import env from "dotenv";
-import run from "./browser.js";
+//import run from "./browser.js";
 env.config()
 
 const ai = new GoogleGenAI({
@@ -27,8 +27,13 @@ async function main() {
     let historyJson = JSON.stringify(history,null,2);
     await fs.writeFileSync("history.txt" , historyJson)
 
-    await run(res.text+ "\n" );
-    setTimeout(main, 1000*60*60*9);
+
+    for(let i=0; i<5;i++) {
+        console.log(i);
+        await setTimeout(main, 5000);
+    }
+    //await run(res.text+ "\n" );
+
 }
 
 await main();
