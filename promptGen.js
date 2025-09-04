@@ -1,7 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import fs from "fs";
 import env from "dotenv";
-//import run from "./browser.js";
+import run from "./browser.js";
 env.config()
 
 const ai = new GoogleGenAI({
@@ -18,22 +18,22 @@ async function main() {
         history: history,
 
     });
-   const res=  await chat.sendMessage({
-        message: "Create",
+    const res = await chat.sendMessage({
+            message: "Create",
         }
-
     )
     history = [...chat.getHistory(false)];
-    let historyJson = JSON.stringify(history,null,2);
-    await fs.writeFileSync("history.txt" , historyJson)
+    let historyJson = JSON.stringify(history, null, 2);
+    await fs.writeFileSync("history.txt", historyJson)
 
-
-    for(let i=0; i<5;i++) {
-        console.log(i);
-        await setTimeout(main, 5000);
+    try {
+        while(true) {
+            await run(res.text + "\n");
+            await new Promise(resolve => setTimeout(resolve, 1000*60*60*8));
+        }
+    } catch (e) {
+        await main();
     }
-    //await run(res.text+ "\n" );
-
 }
 
 await main();
