@@ -2,7 +2,6 @@ import puppet from "puppeteer";
 import path from "path";
 import upload from "./awsupload.js";
 
-
 async function run(prompt) {
     const userDataDir = path.resolve(process.cwd(), 'myUserData');
     console.log(`Using user data directory: ${userDataDir}`);
