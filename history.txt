@@ -13,6 +13,6 @@
         "text": "A photorealistic, miniature version of Jupiter, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Emerald and Teal oozes out."
       }
     ],
-    "role": "model
+    "role": "model"
   }
 ]
