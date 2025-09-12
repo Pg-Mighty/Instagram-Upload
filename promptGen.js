@@ -30,7 +30,7 @@ async function main() {
         while(true) {
             await run(res.text + "\n");
             console.log("Waiting until next timeslot");
-            await new Promise(resolve => setTimeout(resolve, 1000*60*60*8));
+            await new Promise(resolve => setTimeout(resolve, 1000*60*60*9));
         }
     } catch (e) {
         await main();
