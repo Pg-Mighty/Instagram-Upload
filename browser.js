@@ -2,6 +2,7 @@ import puppet from "puppeteer";
 import path from "path";
 import upload from "./awsupload.js";
 
+
 async function run(prompt) {
     const userDataDir = path.resolve(process.cwd(), 'myUserData');
     console.log(`Using user data directory: ${userDataDir}`);
@@ -13,8 +14,10 @@ async function run(prompt) {
     });
 
     const page = await browser.newPage();
-    await page.goto("https://gemini.google.com/app", {waitUntil: 'networkidle2'});
-    new Promise((resolve)=> setTimeout(resolve,10000));
+    page.setDefaultNavigationTimeout(60000);
+    await page.goto("https://gemini.google.com/app", { waitUntil: 'domcontentloaded' });
+    await new Promise((resolve)=> setTimeout(resolve,10000));
+
 
     // Annoying popup
     try {
@@ -23,7 +26,7 @@ async function run(prompt) {
         }
     }catch(e) {
 
-        await page.click('mat-icon[fonticon="page_info"]');
+        await page.click('button[aria-label="Tools"]');
         await new Promise(resolve => setTimeout(resolve, 1000));
         await page.click('::-p-text(Create videos with Veo)');
         await page.locator('p').fill(prompt);
@@ -40,7 +43,7 @@ async function run(prompt) {
         await browser.close();
     }
 }
-
+run()
 
  function listen(page) {
 
