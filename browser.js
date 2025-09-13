@@ -43,7 +43,6 @@ async function run(prompt) {
         await browser.close();
     }
 }
-run()
 
  function listen(page) {
 
