@@ -36,7 +36,7 @@ async function run(prompt) {
 
         let videoBase64 = await listen(page);
 
-        const videoBuffer = Buffer.from(videoBase64, "base64");// Buffer 
+        const videoBuffer = Buffer.from(videoBase64, "base64");// Buffer as 
 
         upload(videoBuffer);
 
