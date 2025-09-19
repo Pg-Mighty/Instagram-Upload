@@ -38,6 +38,8 @@ async function run(prompt) {
 
         const videoBuffer = Buffer.from(videoBase64, "base64");// Buffer of a base64 encoded video
 
+
+
         upload(videoBuffer);
 
         await browser.close();
