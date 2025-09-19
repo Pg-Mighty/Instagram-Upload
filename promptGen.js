@@ -18,7 +18,15 @@ async function main() {
         history: history,
 
     });
-    const res = await chat.sendMessage({
+    const res1 = await chat.sendMessage({
+            message: "Create",
+        }
+    )
+    const res2 = await chat.sendMessage({
+            message: "Create",
+        }
+    )
+    const res3 = await chat.sendMessage({
             message: "Create",
         }
     )
@@ -26,7 +34,9 @@ async function main() {
     let historyJson = JSON.stringify(history, null, 2);
     await fs.writeFileSync("history.txt", historyJson)
 
-    await run(res.text + "\n");
+    const promptArray = [res1.text + "/n", res2.text+ "/n", res3.text+ "/n"];
+
+   await run(promptArray);
 }
 
 export default main;

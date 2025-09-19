@@ -3,7 +3,9 @@ import path from "path";
 import upload from "./awsupload.js";
 
 
-async function run(prompt) {
+async function run(promptArray) {
+    let videoArray= [];
+
     const userDataDir = path.resolve(process.cwd(), 'myUserData');
     console.log(`Using user data directory: ${userDataDir}`);
 
@@ -19,31 +21,36 @@ async function run(prompt) {
     await new Promise((resolve)=> setTimeout(resolve,10000));
 
 
+
     // Annoying popup
     try {
         if (page.locator('::-p-text(No, thanks)')) {
             await page.click('::-p-text(No, thanks)');
         }
     }catch(e) {
+        for(let i=0; i<3; i++){
 
-        await page.click('button[aria-label="Tools"]');
+            await page.click('button[aria-label="Tools"]');
         await new Promise(resolve => setTimeout(resolve, 1000));
         await page.click('::-p-text(Create videos with Veo)');
-        await page.locator('p').fill(prompt);
+        await page.locator('p').fill(promptArray[i]);
 
 
         await new Promise(resolve => setTimeout(resolve, 50000));
 
         let videoBase64 = await listen(page);
 
-        const videoBuffer = Buffer.from(videoBase64, "base64");// Buffer of a base64 encoded video
+         const videoBuffer = Buffer.from(videoBase64, "base64");// Buffer of a base64 encoded video
+
+         videoArray.add(videoBuffer);
+
+        }
+    }
 
 
-
-        upload(videoBuffer);
+       // upload(videoBuffer);
 
         await browser.close();
-    }
 }
 
  function listen(page) {
