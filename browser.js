@@ -1,6 +1,6 @@
 import puppet from "puppeteer";
 import path from "path";
-import upload from "./awsupload.js";
+import edit from "./editor.js";
 
 
 async function run(promptArray) {
@@ -28,29 +28,30 @@ async function run(promptArray) {
             await page.click('::-p-text(No, thanks)');
         }
     }catch(e) {
-        for(let i=0; i<3; i++){
+        for (let i = 0; i < 3; i++) {
 
             await page.click('button[aria-label="Tools"]');
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        await page.click('::-p-text(Create videos with Veo)');
-        await page.locator('p').fill(promptArray[i]);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            await page.click('::-p-text(Create videos with Veo)');
+            await page.locator('p').fill(promptArray[i]);
 
 
-        await new Promise(resolve => setTimeout(resolve, 50000));
+            await new Promise(resolve => setTimeout(resolve, 50000));
 
-        let videoBase64 = await listen(page);
+            let videoBase64 = await listen(page);
 
-         const videoBuffer = Buffer.from(videoBase64, "base64");// Buffer of a base64 encoded video
+            const videoBuffer = await Buffer.from(videoBase64, "base64");// Buffer of a base64 encoded video
 
-         videoArray.add(videoBuffer);
+            await videoArray.add(videoBuffer);
 
         }
-    }
 
 
-       // upload(videoBuffer);
+        edit(videoArray);
 
         await browser.close();
+
+    }
 }
 
  function listen(page) {
