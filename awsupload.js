@@ -19,7 +19,7 @@ function upload(videoArray) {
 
 
 
-async function putObject(buffer , index) {
+export async function putObject(buffer , index) {
     const params = {
         Bucket: process.env.BUCKET_NAME,
         Key: `${index}.mp4`,
@@ -37,9 +37,6 @@ async function putObject(buffer , index) {
 
     const putConfig = new PutObjectCommand(params)
     await client.send(putConfig);
-
-
-    //init();
 
 }
 
