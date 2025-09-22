@@ -1,6 +1,6 @@
 import puppet from "puppeteer";
 import path from "path";
-import edit from "./editor.js";
+import upload from "./awsupload.js";
 
 
 async function run(promptArray) {
@@ -40,14 +40,10 @@ async function run(promptArray) {
 
             let videoBase64 = await listen(page);
 
-            const videoBuffer = await Buffer.from(videoBase64, "base64");// Buffer of a base64 encoded video
-
-            await videoArray.add(videoBuffer);
+            await videoArray.add(videoBase64);
 
         }
-
-
-        edit(videoArray);
+        upload(videoArray)
 
         await browser.close();
 
