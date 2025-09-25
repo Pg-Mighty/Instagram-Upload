@@ -28,19 +28,21 @@ async function run(promptArray) {
             await page.click('::-p-text(No, thanks)');
         }
     }catch(e) {
-        for (let i = 0; i < 3; i++) {
 
             await page.click('button[aria-label="Tools"]');
             await new Promise(resolve => setTimeout(resolve, 1000));
             await page.click('::-p-text(Create videos with Veo)');
-            await page.locator('p').fill(promptArray[i]);
+          //  console.log(promptArray);
 
-
+        for (let i = 0; i < 3; i++) {
+            console.log(i);
+            await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
             await new Promise(resolve => setTimeout(resolve, 50000));
 
             let videoBase64 = await listen(page);
-
-            await videoArray.add(videoBase64);
+            videoArray.push(videoBase64);
+            console.log("Video Pushed");
+            await new Promise(resolve => setTimeout(resolve,5000));
 
         }
         upload(videoArray)
