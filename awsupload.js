@@ -10,7 +10,7 @@ function upload(videoArray) {
     for (let i=0; i<videoArray.length; i++) {
 
         const buffer = Buffer.from(videoArray[i], "base64");
-        putObject(buffer ,i+1 )
+        putObject(buffer, i + 1)
     }
 
     edit();
