@@ -10,6 +10,7 @@ const ai = new GoogleGenAI({
 
 async function main() {
 
+    let promptArray = [];
     let historyString = fs.readFileSync("history.txt").toString();
     let history = JSON.parse(historyString);
 
@@ -18,25 +19,25 @@ async function main() {
         history: history,
 
     });
-    const res1 = await chat.sendMessage({
-            message: "Create",
-        }
-    )
-    const res2 = await chat.sendMessage({
-            message: "Create",
-        }
-    )
-    const res3 = await chat.sendMessage({
-            message: "Create",
-        }
-    )
-    history = [...chat.getHistory(false)];
-    let historyJson = JSON.stringify(history, null, 2);
-    await fs.writeFileSync("history.txt", historyJson)
 
-    const promptArray = [res1.text + "/n", res2.text+ "/n", res3.text+ "/n"];
+    for(let i=0; i<3 ;i++) {
+
+        const res = await chat.sendMessage({
+                message: "Create",
+            }
+        )
+        history = [...chat.getHistory(false)];
+        let historyJson = JSON.stringify(history, null, 2);
+        await fs.writeFileSync("history.txt", historyJson)
+
+        promptArray.push(res.text + "\n");
+
+    }
 
    await run(promptArray);
 }
+main()
+
+
 
 export default main;
