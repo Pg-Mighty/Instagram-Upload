@@ -3,17 +3,18 @@ import env from "dotenv"
 import init from "./main.js";
 import edit from "./editor.js";
 
+
 env.config();
 
-function upload(videoArray) {
+async function upload(videoArray) {
 
     for (let i=0; i<videoArray.length; i++) {
 
         const buffer = Buffer.from(videoArray[i], "base64");
-        putObject(buffer, i + 1)
+         await putObject(buffer, i + 1)
     }
 
-    edit();
+      edit();
 
 }
 
