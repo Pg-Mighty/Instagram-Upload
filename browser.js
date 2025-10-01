@@ -39,14 +39,19 @@ async function run(promptArray) {
             await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
             await new Promise(resolve => setTimeout(resolve, 50000));
 
+
+        }
+
+        for (let i=0 ;i < 3 ; i++){
             let videoBase64 = await listen(page);
             videoArray.push(videoBase64);
             console.log("Video Pushed");
-            await new Promise(resolve => setTimeout(resolve,5000));
 
         }
-        upload(videoArray)
 
+
+
+        upload(videoArray)
         await browser.close();
 
     }
