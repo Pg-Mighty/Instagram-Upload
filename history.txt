@@ -14,5 +14,53 @@
       }
     ],
     "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of Saturn, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Gold and Crimson oozes out."
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of The Sun, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Deep Blue and Violet oozes out."
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of a Black Hole, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Orange and Magenta oozes out."
+      }
+    ],
+    "role": "model"
   }
 ]
