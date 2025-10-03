@@ -3,7 +3,8 @@ import path from "path";
 import upload from "./awsupload.js";
 
 
-async function run(promptArray) {
+async function run(promptArray)  {
+    let video;
     let videoArray= [];
 
     const userDataDir = path.resolve(process.cwd(), 'myUserData');
@@ -23,38 +24,43 @@ async function run(promptArray) {
 
 
     // Annoying popup
-    try {
+
         if (page.locator('::-p-text(No, thanks)')) {
             await page.click('::-p-text(No, thanks)');
-        }
-    }catch(e) {
+        }else {
+
 
             await page.click('button[aria-label="Tools"]');
             await new Promise(resolve => setTimeout(resolve, 1000));
             await page.click('::-p-text(Create videos with Veo)');
-          //  console.log(promptArray);
+            //  console.log(promptArray);
 
-        for (let i = 0; i < 3; i++) {
-            console.log(i);
-            await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
-            await new Promise(resolve => setTimeout(resolve, 50000));
+            for (let i = 0; i < 3; i++) {
+                console.log(i);
+                await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
+                await new Promise(resolve => setTimeout(resolve, 50000));
+                if(i === 2){
+                    console.log("Loading all videos...");
+                    for(let j=0; j<3; j++){
+                        let videoBase64 = await listen(page);
+                        videoArray.push(videoBase64);
 
+                    }
+
+                }else {
+                    await listen(page);
+                    console.log("Generated Video " + i + 1);
+
+                }
+
+
+            }
+
+
+            upload(videoArray)
+            await browser.close();
 
         }
-
-        for (let i=0 ;i < 3 ; i++){
-            let videoBase64 = await listen(page);
-            videoArray.push(videoBase64);
-            console.log("Video Pushed");
-
-        }
-
-
-
-        upload(videoArray)
-        await browser.close();
-
-    }
 }
 
  function listen(page) {
