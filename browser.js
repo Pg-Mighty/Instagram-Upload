@@ -24,7 +24,6 @@ async function run(promptArray)  {
 
 
     // Annoying popup
-
         if (page.locator('::-p-text(No, thanks)')) {
             await page.click('::-p-text(No, thanks)');
         }else {
