@@ -28,7 +28,6 @@ async function run(promptArray)  {
             await page.click('::-p-text(No, thanks)');
         }else {
 
-
             await page.click('button[aria-label="Tools"]');
             await new Promise(resolve => setTimeout(resolve, 1000));
             await page.click('::-p-text(Create videos with Veo)');
