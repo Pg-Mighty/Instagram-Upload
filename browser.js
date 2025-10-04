@@ -24,9 +24,12 @@ async function run(promptArray)  {
 
 
     // Annoying popup
+
+    try{
         if (page.locator('::-p-text(No, thanks)')) {
             await page.click('::-p-text(No, thanks)');
-        }else {
+        }
+        }catch {
 
             await page.click('button[aria-label="Tools"]');
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -47,10 +50,9 @@ async function run(promptArray)  {
 
                 }else {
                     await listen(page);
-                    console.log("Generated Video " + i + 1);
+                    console.log("Generated Video " + (i+1));
 
                 }
-
 
             }
 
