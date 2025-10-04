@@ -71,7 +71,7 @@ async function run(promptArray)  {
          }, 120000);
 
          const handler = async response => {
-             if (response.url().includes("https://contribution.usercontent.google.com/download?c=")) {
+             if (response.url().includes("https://contribution.usercontent.google.com/download?c=" && response.status() === 200)) {
                  clearTimeout(timeout);
                  page.off("response", handler);
 
