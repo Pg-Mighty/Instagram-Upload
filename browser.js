@@ -4,7 +4,6 @@ import upload from "./awsupload.js";
 
 
 async function run(promptArray)  {
-    let video;
     let videoArray= [];
 
     const userDataDir = path.resolve(process.cwd(), 'myUserData');
@@ -42,11 +41,15 @@ async function run(promptArray)  {
                 await new Promise(resolve => setTimeout(resolve, 50000));
                 if(i === 2){
                     console.log("Loading all videos...");
-                    for(let j=0; j<3; j++){
-                        let videoBase64 = await listen(page);
+
+                        let video1 =  listen(page);
+                        let video2 =  listen(page);
+                        let video3 =  listen(page);
+
+                        let videoBase64 = await Promise.all([video1, video2, video3]);
                         videoArray.push(videoBase64);
 
-                    }
+
 
                 }else {
                     await listen(page);
