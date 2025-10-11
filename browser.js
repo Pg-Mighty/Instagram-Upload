@@ -43,12 +43,13 @@ async function run(promptArray)  {
                     console.log("Loading all videos...");
 
                         let video1 =  listen(page);
+                        await new Promise(resolve=> setTimeout(resolve,500));
                         let video2 =  listen(page);
+                        await new Promise(resolve=> setTimeout(resolve,500));
                         let video3 =  listen(page);
 
-                        let videoBase64 = await Promise.all([video1, video2, video3]);
-                        videoArray.push(videoBase64);
-
+                        videoArray = await Promise.all([video1, video2, video3]);
+                        console.log("Pushed");
 
 
                 }else {
@@ -58,7 +59,6 @@ async function run(promptArray)  {
                 }
 
             }
-
 
             upload(videoArray)
             await browser.close();
@@ -74,7 +74,7 @@ async function run(promptArray)  {
          }, 120000);
 
          const handler = async response => {
-             if (response.url().includes("https://contribution.usercontent.google.com/download?c=" && response.status() === 200)) {
+             if (response.url().includes("https://contribution.usercontent.google.com/download?c=")) {
                  clearTimeout(timeout);
                  page.off("response", handler);
 
