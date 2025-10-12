@@ -43,9 +43,9 @@ async function run(promptArray)  {
                     console.log("Loading all videos...");
 
                         let video1 =  listen(page);
-                        await new Promise(resolve=> setTimeout(resolve,500));
+                        await new Promise(resolve=> setTimeout(resolve,900));
                         let video2 =  listen(page);
-                        await new Promise(resolve=> setTimeout(resolve,500));
+                        await new Promise(resolve=> setTimeout(resolve,900));
                         let video3 =  listen(page);
 
                         videoArray = await Promise.all([video1, video2, video3]);
