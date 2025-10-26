@@ -38,17 +38,17 @@ async function run(promptArray)  {
             for (let i = 0; i < 3; i++) {
                 console.log(i);
                 await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
-                await new Promise(resolve => setTimeout(resolve, 50000));
+                await new Promise(resolve => setTimeout(resolve, 40000));
                 if(i === 2){
                     console.log("Loading all videos...");
 
-                        let video1 =  listen(page);
-                        await new Promise(resolve=> setTimeout(resolve,900));
-                        let video2 =  listen(page);
-                        await new Promise(resolve=> setTimeout(resolve,900));
-                        let video3 =  listen(page);
+                        let video1 =  await listen(page)
+                        await new Promise(resolve=> setTimeout(resolve,200));
+                        let video2 =  await listen(page);
+                        await new Promise(resolve=> setTimeout(resolve,200));
+                        let video3 = await listen(page);
 
-                        videoArray = await Promise.all([video1, video2, video3]);
+                        videoArray.push(video1, video2, video3);
                         console.log("Pushed");
 
 
