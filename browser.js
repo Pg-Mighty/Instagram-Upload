@@ -39,24 +39,12 @@ async function run(promptArray)  {
                 console.log(i);
                 await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
                 await new Promise(resolve => setTimeout(resolve, 40000));
-                if(i === 2){
-                    console.log("Loading all videos...");
-
-                        let video1 =  await listen(page)
-                        await new Promise(resolve=> setTimeout(resolve,200));
-                        let video2 =  await listen(page);
-                        await new Promise(resolve=> setTimeout(resolve,200));
-                        let video3 = await listen(page);
-
-                        videoArray.push(video1, video2, video3);
-                        console.log("Pushed");
 
 
-                }else {
-                    await listen(page);
-                    console.log("Generated Video " + (i+1));
+                if(i===2)
+                     videoArray= await listen(page);
+                    console.log("Generated Video "+ (i+1));
 
-                }
 
             }
 
@@ -67,6 +55,7 @@ async function run(promptArray)  {
 }
 
  function listen(page) {
+    let baseArray = [];
 
      return new Promise((resolve, reject) => {
          const timeout = setTimeout(() => {
@@ -74,18 +63,24 @@ async function run(promptArray)  {
          }, 120000);
 
          const handler = async response => {
-             if (response.url().includes("https://contribution.usercontent.google.com/download?c=")) {
-                 clearTimeout(timeout);
-                 page.off("response", handler);
 
-                 try {
-                     const buffer = await response.buffer();
-                     const base64 = buffer.toString("base64");
-                     resolve(base64);
-                 } catch (err) {
-                     reject(err);
+             for (let i = 0; i < 3; i++) {
+                 if (response.url().includes("https://contribution.usercontent.google.com/download?c=")) {
+                     clearTimeout(timeout);
+
+
+                     try {
+                         const buffer = await response.buffer();
+                         const base64 = buffer.toString("base64");
+                         baseArray.push(base64);
+                         await new Promise(resolve => setTimeout(resolve,100))
+                     } catch (err) {
+                         reject(err);
+                     }
                  }
              }
+             resolve(baseArray);
+             page.off("response", handler);
          };
          page.on("response", handler);
      });
