@@ -70,7 +70,7 @@ async function run(promptArray)  {
 
 
                      try {
-                         const buffer = await response.buffer();
+                         const buffer = await response.buffer()
                          const base64 = buffer.toString("base64");
                          baseArray.push(base64);
                          await new Promise(resolve => setTimeout(resolve,100))
