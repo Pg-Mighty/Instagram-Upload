@@ -42,7 +42,6 @@ async function run(promptArray)  {
                      videoArray= await listen(page);
                     console.log("Generated Video "+ (i+1));
 
-
             }
 
             upload(videoArray)
