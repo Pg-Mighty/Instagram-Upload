@@ -36,10 +36,9 @@ async function run(promptArray)  {
             //  console.log(promptArray);
 
             for (let i = 0; i < 3; i++) {
-                console.log(i);
+                console.log(i+1);
                 await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
                 await new Promise(resolve => setTimeout(resolve, 40000));
-
 
                 if(i===2)
                      videoArray= await listen(page);
@@ -70,10 +69,10 @@ async function run(promptArray)  {
 
 
                      try {
-                         const buffer = await response.buffer()
+                         const buffer = await response.buffer();
                          const base64 = buffer.toString("base64");
                          baseArray.push(base64);
-                         await new Promise(resolve => setTimeout(resolve,100))
+                         await new Promise(resolve1 => setTimeout(resolve1,100))
                      } catch (err) {
                          reject(err);
                      }
