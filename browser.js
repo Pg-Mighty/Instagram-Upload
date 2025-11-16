@@ -20,8 +20,6 @@ async function run(promptArray)  {
     await page.goto("https://gemini.google.com/app", { waitUntil: 'domcontentloaded' });
     await new Promise((resolve)=> setTimeout(resolve,10000));
 
-
-
     // Annoying popup
 
     try{
