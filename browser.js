@@ -30,13 +30,13 @@ async function run(promptArray)  {
 
             await page.click('button[aria-label="Tools"]');
             await new Promise(resolve => setTimeout(resolve, 1000));
-            await page.click('::-p-text(Create videos with Veo)');
+            await page.click('::-p-text(Create videos (Veo 3.1))');
             //  console.log(promptArray);
 
             for (let i = 0; i < 3; i++) {
                 console.log(i+1);
                 await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
-                await new Promise(resolve => setTimeout(resolve, 40000));
+                await new Promise(resolve => setTimeout(resolve, 100000));
 
                 if(i===2)
                      videoArray= await listen(page);
