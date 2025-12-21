@@ -16,7 +16,7 @@ function init() {
     const body = {
         "media_type": "REELS",
         "video_url": "https://reelsformyinstgrampage123.s3.ap-south-1.amazonaws.com/Reel.mp4",
-        "title": "This is a I am elon musk reel",
+        "title": "This is a I am elon musk reel"
 
     }
 
