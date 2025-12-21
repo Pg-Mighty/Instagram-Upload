@@ -1,6 +1,7 @@
 import puppet from "puppeteer";
 import path from "path";
 import upload from "./awsupload.js";
+import fs from "fs";
 
 
 async function run(promptArray)  {
@@ -37,26 +38,27 @@ async function run(promptArray)  {
                 console.log(i+1);
                 await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
 
-
                 if(i===2) {
                     await new Promise(resolve => setTimeout(resolve, 60000));
-                    videoArray = await listen(page);
+                    videoArray.push(await listen(page));
+                    videoArray.push(await listen(page));
+                    videoArray.push(await listen(page));
+                    fs.writeFileSync("video.txt", JSON.stringify(videoArray));
                     console.log("Generated Video "+ (i+1));
                 }else {
                     await new Promise(resolve => setTimeout(resolve, 100000));
                 }
 
-
             }
             console.log("Uploading all");
-            upload(videoArray)
+             upload(videoArray)
             await browser.close();
 
         }
 }
 
  function listen(page) {
-    let baseArray = [];
+ let base64;
 
      return new Promise((resolve, reject) => {
          const timeout = setTimeout(() => {
@@ -65,22 +67,20 @@ async function run(promptArray)  {
 
          const handler = async response => {
 
-             for (let i = 0; i < 3; i++) {
+
                  if (response.url().includes("https://contribution.usercontent.google.com/download?c=")) {
                      clearTimeout(timeout);
 
-
                      try {
                          const buffer = await response.buffer();
-                         const base64 = buffer.toString("base64");
-                         baseArray.push(base64);
+                         base64 = buffer.toString("base64");
                          await new Promise(resolve1 => setTimeout(resolve1,100))
                      } catch (err) {
                          reject(err);
                      }
-                 }
+
              }
-             resolve(baseArray);
+             resolve(base64);
              page.off("response", handler);
          };
          page.on("response", handler);
