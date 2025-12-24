@@ -42,7 +42,7 @@ async function run(promptArray)  {
                     await new Promise(resolve => setTimeout(resolve, 60000));
                     videoArray.push(await listen(page));
                     fs.writeFileSync("video.txt", JSON.stringify(videoArray));
-                    console.log("Generated Video "+ (i+1));
+                    console.log("Generated Video "+ (i+1))
 
             }
             console.log("Uploading all");
