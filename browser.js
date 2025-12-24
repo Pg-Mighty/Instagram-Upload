@@ -38,16 +38,11 @@ async function run(promptArray)  {
                 console.log(i+1);
                 await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
 
-                if(i===2) {
+
                     await new Promise(resolve => setTimeout(resolve, 60000));
-                    videoArray.push(await listen(page));
-                    videoArray.push(await listen(page));
                     videoArray.push(await listen(page));
                     fs.writeFileSync("video.txt", JSON.stringify(videoArray));
                     console.log("Generated Video "+ (i+1));
-                }else {
-                    await new Promise(resolve => setTimeout(resolve, 100000));
-                }
 
             }
             console.log("Uploading all");
@@ -74,7 +69,6 @@ async function run(promptArray)  {
                      try {
                          const buffer = await response.buffer();
                          base64 = buffer.toString("base64");
-                         await new Promise(resolve1 => setTimeout(resolve1,100))
                      } catch (err) {
                          reject(err);
                      }
