@@ -16,7 +16,7 @@ async function main() {
 
     const chat = await ai.chats.create({
         model: 'gemini-2.5-flash',
-        history: history
+        history: history,
 
     });
 
@@ -31,7 +31,6 @@ async function main() {
         await fs.writeFileSync("history.txt", historyJson)
 
         promptArray.push(res.text + "\n");
-
     }
 
    await run(promptArray);
