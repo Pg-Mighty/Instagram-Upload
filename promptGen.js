@@ -33,7 +33,7 @@ async function main() {
         promptArray.push(res.text + "\n");
     }
 
-   await run(promptArray)
+   await run(promptArray);
 }
 main()
 
