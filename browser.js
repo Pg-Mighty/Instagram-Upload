@@ -41,13 +41,13 @@ async function run(promptArray)  {
 
                     await new Promise(resolve => setTimeout(resolve, 60000));
                     videoArray.push(await listen(page));
-                    console.log(videoArray);
+                    console.log(JSON.stringify(videoArray));
                     console.log("Generated Video "+ (i+1));
 
             }
             console.log("Uploading all");
         fs.writeFileSync("video.txt", JSON.stringify(videoArray));
-             upload(videoArray)
+             // upload(videoArray)
             await browser.close();
 
         }
@@ -74,8 +74,10 @@ async function run(promptArray)  {
                          reject(err);
                      }
 
+                     resolve(base64);
+
              }
-             resolve(base64);
+
              page.off("response", handler);
          };
          page.on("response", handler);
