@@ -60,6 +60,7 @@ async function run(promptArray)  {
 
      return new Promise((resolve, reject) => {
          const timeout = setTimeout(() => {
+             page.off("response", handler);
              reject(new Error("Timeout 2min"))
          }, 120000);
 
@@ -80,8 +81,9 @@ async function run(promptArray)  {
 
              }
 
-             page.off("response", handler);
+
          };
+
          page.on("response", handler);
      });
 
