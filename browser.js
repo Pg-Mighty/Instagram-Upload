@@ -39,11 +39,11 @@ async function run(promptArray)  {
                 await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
 
 
-                    await new Promise(resolve => setTimeout(resolve, 30000));
+                    await new Promise(resolve => setTimeout(resolve, 10000));
                     const video = await listen(page);
-                    videoArray.push(video);
+                   // videoArray.push(video);
                     console.log("DOne");
-                    console.log(videoArray);
+                    console.log(video);
                     console.log("Generated Video "+ (i+1));
 
             }
