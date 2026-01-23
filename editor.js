@@ -11,7 +11,7 @@ ffmpeg.setFfprobePath(ffprobeInstaller.path);
 
 async function edit() {
     
-try
+try{
     await ffmpeg()
         .input("https://reelsformyinstgrampage123.s3.ap-south-1.amazonaws.com/1.mp4")
         .input("https://reelsformyinstgrampage123.s3.ap-south-1.amazonaws.com/2.mp4")
