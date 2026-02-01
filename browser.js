@@ -44,7 +44,6 @@ async function run(promptArray)  {
                     const video = await listen(page);
                    // videoArray.push(video);
                     console.log("DOne");
-                    console.log(video);
                     console.log("Generated Video "+ (i+1));
 
             }
