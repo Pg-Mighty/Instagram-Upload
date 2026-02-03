@@ -49,8 +49,8 @@ async function run(promptArray)  {
 
             }
             console.log("Uploading all");
-        fs.writeFileSync("video.txt", JSON.stringify(videoArray));
-             // upload(videoArray)
+
+            upload(videoArray)
             await browser.close();
 
         }
