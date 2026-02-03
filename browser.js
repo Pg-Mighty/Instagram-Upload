@@ -63,7 +63,7 @@ async function run(promptArray)  {
          const timeout = setTimeout(() => {
              page.off("response", handler);
              reject(new Error("Timeout 2min"))
-         }, 120000);
+         }, 125000);
 
          const handler = async response => {
 
