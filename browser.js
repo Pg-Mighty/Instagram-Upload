@@ -42,8 +42,9 @@ async function run(promptArray)  {
 
                     await new Promise(resolve => setTimeout(resolve, 10000));
                     const video = await listen(page);
-                   // videoArray.push(video);
+                   videoArray.push(video);
                     console.log("DOne");
+
                     console.log("Generated Video "+ (i+1));
 
             }
