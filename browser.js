@@ -50,7 +50,7 @@ async function run(promptArray)  {
             }
             console.log("Uploading all");
 
-            upload(videoArray)
+          //  upload(videoArray)
             await browser.close();
 
         }
