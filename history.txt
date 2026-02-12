@@ -26,7 +26,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Sagittarius A*, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Crimson and Violet oozes out."
+        "text": "A photorealistic, miniature version of a Black Hole, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Gold and Silver oozes out."
       }
     ],
     "role": "model"
@@ -42,7 +42,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of The Moon, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Gold and Silver oozes out."
+        "text": "A photorealistic, miniature version of Betelgeuse, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Crimson and Orange oozes out."
       }
     ],
     "role": "model"
@@ -58,7 +58,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Mars, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Rust and Ochre oozes out."
+        "text": "A photorealistic, miniature version of Saturn, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Purple and Pink oozes out."
       }
     ],
     "role": "model"
@@ -74,7 +74,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of the Andromeda Galaxy, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Indigo and Lavender oozes out."
+        "text": "A photorealistic, miniature version of the Andromeda Galaxy, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Cyan and Magenta oozes out."
       }
     ],
     "role": "model"
@@ -90,7 +90,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Vesta, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Bronze and Copper oozes out."
+        "text": "A photorealistic, miniature version of the Orion Nebula, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Blue and Violet oozes out."
       }
     ],
     "role": "model"
@@ -106,7 +106,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Neptune, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Deep Blue and Cyan oozes out."
+        "text": "A photorealistic, miniature version of an Asteroid, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Grey and Brown oozes out."
       }
     ],
     "role": "model"
@@ -122,7 +122,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Sirius, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Scarlet and Orange oozes out."
+        "text": "A photorealistic, miniature version of Neptune, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Deep Blue and Aqua oozes out."
       }
     ],
     "role": "model"
@@ -138,7 +138,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Ceres, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Beige and Brown oozes out."
+        "text": "A photorealistic, miniature version of Mars, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Red and Rust oozes out."
       }
     ],
     "role": "model"
@@ -154,7 +154,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of the Orion Nebula, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Fuchsia and Electric Blue oozes out."
+        "text": "A photorealistic, miniature version of a Comet, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Yellow and Green oozes out."
       }
     ],
     "role": "model"
@@ -170,7 +170,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Saturn, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Amethyst and Topaz oozes out."
+        "text": "A photorealistic, miniature version of the Pillars of Creation, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Indigo and Lavender oozes out."
       }
     ],
     "role": "model"
@@ -186,7 +186,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Betelgeuse, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Ruby and Amber oozes out."
+        "text": "A photorealistic, miniature version of Venus, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color fiery Orange and deep Yellow oozes out."
       }
     ],
     "role": "model"
@@ -202,7 +202,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Earth, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Forest Green and Sky Blue oozes out."
+        "text": "A photorealistic, miniature version of the Crab Nebula, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Scarlet and Gold oozes out."
       }
     ],
     "role": "model"
@@ -218,7 +218,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of the Pillars of Creation, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Coral and Peach oozes out."
+        "text": "A photorealistic, miniature version of Uranus, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Sky Blue and Mint Green oozes out."
       }
     ],
     "role": "model"
@@ -234,7 +234,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Mercury, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Chartreuse and Lime oozes out."
+        "text": "A photorealistic, miniature version of a Quasar, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Electric Blue and Cosmic Violet oozes out."
       }
     ],
     "role": "model"
@@ -250,215 +250,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of Venus, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Orange and Yellow oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of the Sombrero Galaxy, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Periwinkle and Plum oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of Uranus, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Mint Green and Aqua oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of the Crab Nebula, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Magenta and Gold oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of Haumea, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Rose and Pearl oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of Eris, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Slate and Charcoal oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of Makemake, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Lilac and Frost oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of the Ring Nebula, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Lavender and Periwinkle oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of the Cartwheel Galaxy, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Cerulean and Sapphire oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of PSR B1257+12, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Electric Purple and Neon Green oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of the Vela Pulsar, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Maroon and Gold oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of the Sunflower Galaxy, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Sunflower Yellow and Olive Green oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of the Great Red Spot, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Scarlet and Peach oozes out."
-      }
-    ],
-    "role": "model"
-  },
-  {
-    "role": "user",
-    "parts": [
-      {
-        "text": "Create"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "text": "A photorealistic, miniature version of the Horsehead Nebula, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Indigo and Amber oozes out."
+        "text": "A photorealistic, miniature version of Mercury, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Metallic Silver and Burnt Orange oozes out."
       }
     ],
     "role": "model"
