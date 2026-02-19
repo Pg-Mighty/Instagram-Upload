@@ -76,7 +76,7 @@ async function run(promptArray) {
     });
 
     const page = await browser.newPage();
-    page.setDefaultNavigationTimeout(60000);page.setDefaultNavigationTimeout(60000);
+    page.setDefaultNavigationTimeout(60000);
 
     await page.goto("https://gemini.google.com/app", { waitUntil: 'domcontentloaded' });
 
