@@ -3,12 +3,71 @@ import path from "path";
 import upload from "./awsupload.js";
 import fs from "fs";
 
+/**
+ * Robust listener using CDP to capture streaming video data in chunks.
+ * Prevents the "No data found for resource" Protocol Error.
+ */
+function listenForStream(page) {
+    return new Promise(async (resolve, reject) => {
+        let client;
+        try {
+            client = await page.target().createCDPSession();
+        } catch (e) {
+            return reject(e);
+        }
 
-async function run(promptArray)  {
-    let videoArray= [];
+        await client.send('Network.enable');
 
+        const requestChunks = new Map();
+        let targetRequestId = null;
+
+        const timeout = setTimeout(() => {
+            cleanup();
+            reject(new Error("Timeout: Did not receive the video stream within 125 seconds."));
+        }, 125000);
+
+        const cleanup = () => {
+            clearTimeout(timeout);
+            if (client) {
+                client.off('Network.responseReceived', onResponse);
+                client.off('Network.dataReceived', onDataReceived);
+                client.off('Network.loadingFinished', onLoadingFinished);
+                client.detach().catch(() => {});
+            }
+        };
+
+        const onResponse = (event) => {
+            if (event.response.url.includes("https://contribution.usercontent.google.com/download?c=")) {
+                targetRequestId = event.requestId;
+            }
+        };
+
+        const onDataReceived = (event) => {
+            if (!requestChunks.has(event.requestId)) requestChunks.set(event.requestId, []);
+            if (event.data) {
+                const chunk = Buffer.from(event.data, event.base64Encoded ? 'base64' : 'utf8');
+                requestChunks.get(event.requestId).push(chunk);
+            }
+        };
+
+        const onLoadingFinished = (event) => {
+            if (event.requestId === targetRequestId) {
+                cleanup();
+                const chunks = requestChunks.get(targetRequestId) || [];
+                const finalBuffer = Buffer.concat(chunks);
+                resolve(finalBuffer.toString("base64"));
+            }
+        };
+
+        client.on('Network.responseReceived', onResponse);
+        client.on('Network.dataReceived', onDataReceived);
+        client.on('Network.loadingFinished', onLoadingFinished);
+    });
+}
+
+async function run(promptArray) {
+    let videoArray = [];
     const userDataDir = path.resolve(process.cwd(), 'myUserData');
-    console.log(`Using user data directory: ${userDataDir}`);
 
     const browser = await puppet.launch({
         headless: false,
@@ -18,75 +77,52 @@ async function run(promptArray)  {
 
     const page = await browser.newPage();
     page.setDefaultNavigationTimeout(60000);
+
     await page.goto("https://gemini.google.com/app", { waitUntil: 'domcontentloaded' });
-    await new Promise((resolve)=> setTimeout(resolve,10000));
 
+    // Handle Popups and Navigation
+    try {
+        const noThanks = await page.waitForSelector('::-p-text(No, thanks)', { timeout: 5000 });
+        if (noThanks) await noThanks.click();
+    } catch (e) {
+        console.log("Popup not found, continuing...");
+    }
 
-    // Annoying popup
+    // Navigate to VEO
+    await page.waitForSelector('button[aria-label="Tools"]');
+    await page.click('button[aria-label="Tools"]');
+    await new Promise(r => setTimeout(r, 1000));
+    await page.click('::-p-text(Create videos (Veo 3.1))');
 
-    try{
-        if (page.locator('::-p-text(No, thanks)')){
-            await page.click('::-p-text(No, thanks)');
+    for (let i = 0; i < promptArray.length; i++) {
+        console.log(`Processing prompt ${i + 1}/${promptArray.length}`);
+
+        // Start listening BEFORE triggering the generation
+        const videoPromise = listenForStream(page);
+
+        // Fill prompt
+        const inputSelector = 'div[data-placeholder="Describe your video"]';
+        await page.waitForSelector(inputSelector);
+        await page.click(inputSelector);
+        await page.keyboard.sendCharacter(promptArray[i]);
+        await page.keyboard.press('Enter');
+
+        console.log("Waiting for generation...");
+        try {
+            const base64Video = await videoPromise;
+            videoArray.push(base64Video);
+            console.log(`Successfully generated video ${i + 1}`);
+        } catch (err) {
+            console.error(`Failed to generate video ${i + 1}:`, err.message);
         }
-        }catch {
+    }
 
-            await page.click('button[aria-label="Tools"]');
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            await page.click('::-p-text(Create videos (Veo 3.1))');
-            //  console.log(promptArray);
+    console.log("Generation complete. Uploading...");
+    if (videoArray.length > 0) {
+        await upload(videoArray);
+    }
 
-            for (let i = 0; i < 3; i++) {
-                console.log(i+1);
-                await page.locator('div[data-placeholder="Describe your video"]').fill(promptArray[i]);
-
-
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    const video = await listen(page);
-                   videoArray.push(video);
-                    console.log("DOne");
-
-                    console.log("Generated Video "+ (i+1));
-
-            }
-            console.log("Uploading all");
-
-          //  upload(videoArray)
-            await browser.close();
-
-        }
+    await browser.close();
 }
 
- function listen(page) {
- let base64;
-
-     return new Promise((resolve, reject) => {
-         const timeout = setTimeout(() => {
-             page.off("response", handler);
-             reject(new Error("Timeout 2min"))
-         }, 125000);
-
-         const handler = async response => {
-
-
-                 if (response.url().includes("https://contribution.usercontent.google.com/download?c=")) {
-                     clearTimeout(timeout);
-
-                     try {
-                         const buffer = await response.buffer();
-                         base64 = buffer.toString("base64");
-                     } catch (err) {
-                         reject(err);
-                     }
-
-                     resolve(base64);
-
-             }
-
-
-         };
-
-         page.on("response", handler);
-     });
-
-}
 export default run;
