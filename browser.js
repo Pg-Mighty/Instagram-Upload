@@ -105,13 +105,15 @@ async function run(promptArray) {
         await page.waitForSelector(inputSelector);
         await page.click(inputSelector);
         await page.keyboard.sendCharacter(promptArray[i]);
-        await page.keyboard.press('Enter');
+        await new Promise(r => setTimeout(r, 1000));
+        await page.click('mat-icon[fonticon="send"]');
 
         console.log("Waiting for generation...");
         try {
             const base64Video = await videoPromise;
             videoArray.push(base64Video);
             console.log(`Successfully generated video ${i + 1}`);
+            await new Promise(r=> setTimeout(r, 30000));
         } catch (err) {
             console.error(`Failed to generate video ${i + 1}:`, err.message);
         }
