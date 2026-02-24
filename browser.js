@@ -121,6 +121,7 @@ async function run(promptArray) {
 
     console.log("Generation complete. Uploading...");
     if (videoArray.length > 0) {
+        fs.writeFileSync("request.txt", JSON.stringify(videoArray));
         await upload(videoArray);
     }
 
