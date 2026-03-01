@@ -115,7 +115,7 @@ async function run(promptArray) {
             console.log(`Successfully generated video ${i + 1}`);
             await new Promise(r=> setTimeout(r, 30000));
         } catch (err) {
-            console.error(`Failed to generate video ${i + 1}:`, err.message);
+            console.error(`Failed to generate video ${i + 1}:`, err.message);;
         }
     }
 
