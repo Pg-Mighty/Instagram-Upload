@@ -78,7 +78,7 @@ async function run(promptArray) {
     const page = await browser.newPage();
     page.setDefaultNavigationTimeout(60000);
 
-    await page.goto("https://gemini.google.com/app", { waitUntil: 'domcontentloaded' });
+    await page.goto("https://gemini.google.com/app/d7e5cd1941f3609", { waitUntil: 'domcontentloaded' });
 
     // Handle Popups and Navigation
     try {
@@ -105,7 +105,7 @@ async function run(promptArray) {
         await page.waitForSelector(inputSelector);
         await page.click(inputSelector);
         await page.keyboard.sendCharacter(promptArray[i]);
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 5000));
         await page.click('mat-icon[fonticon="send"]');
 
         console.log("Waiting for generation...");
