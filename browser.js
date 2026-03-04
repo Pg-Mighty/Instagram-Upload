@@ -78,7 +78,7 @@ async function run(promptArray) {
     const page = await browser.newPage();
     page.setDefaultNavigationTimeout(60000);
 
-    await page.goto("https://gemini.google.com/app/d7e5cd1941f3609", { waitUntil: 'domcontentloaded' });
+    await page.goto("https://gemini.google.com/app", { waitUntil: 'domcontentloaded' });
 
     // Handle Popups and Navigation
     try {
@@ -108,7 +108,9 @@ async function run(promptArray) {
         await new Promise(r => setTimeout(r, 5000));
         await page.click('mat-icon[fonticon="send"]');
 
+
         console.log("Waiting for generation...");
+        await new Promise(r => setTimeout(r, 30000)); // 30 sec wait
         try {
             const base64Video = await videoPromise;
             videoArray.push(base64Video);
