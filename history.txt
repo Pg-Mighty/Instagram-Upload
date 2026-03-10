@@ -302,5 +302,53 @@
       }
     ],
     "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of a Globular Cluster, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Sapphire and Emerald oozes out."
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of a Neutron Star, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Scarlet and Graphite oozes out."
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of Earth, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Forest Green and Ocean Blue oozes out."
+      }
+    ],
+    "role": "model"
   }
 ]
