@@ -23,7 +23,7 @@ async function main() {
     for(let i=0; i<3 ;i++) {
 
         const res = await chat.sendMessage({
-                message: "Createeee",
+                message: "Create",
             }
         )
         history = [...chat.getHistory(false)];
