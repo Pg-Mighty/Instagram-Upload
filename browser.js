@@ -92,7 +92,7 @@ async function run(promptArray) {
     await page.waitForSelector('button[aria-label="Tools"]');
     await page.click('button[aria-label="Tools"]');
     await new Promise(r => setTimeout(r, 1000));
-    await page.click('::-p-text(Create video)');
+    await page.click('::-p-text(Video)');
 
     for (let i = 0; i < promptArray.length; i++) {
         console.log(`Processing prompt ${i + 1}/${promptArray.length}`);

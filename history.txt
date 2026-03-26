@@ -26,7 +26,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of a Nebula, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Gold and Violet oozes out."
+        "text": "A photorealistic, miniature version of The Sun, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Gold and Crimson oozes out."
       }
     ],
     "role": "model"
@@ -42,7 +42,7 @@
   {
     "parts": [
       {
-        "text": "A photorealistic, miniature version of a Black Hole, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Crimson and Indigo oozes out."
+        "text": "A photorealistic, miniature version of a Black Hole, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Indigo and Violet oozes out."
       }
     ],
     "role": "model"
