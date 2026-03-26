@@ -85,7 +85,7 @@ async function run(promptArray) {
         const noThanks = await page.waitForSelector('::-p-text(No, thanks)', { timeout: 5000 });
         if (noThanks) await noThanks.click();
     } catch (e) {
-        console.log("Popup not found, continuing.....");
+        console.log("Popup not found, continuing....");
     }
 
     // Navigate to VEO
@@ -97,7 +97,7 @@ async function run(promptArray) {
     for (let i = 0; i < promptArray.length; i++) {
         console.log(`Processing prompt ${i + 1}/${promptArray.length}`);
 
-        // Start listening BEFORE triggering the generation
+        // Start listening BEFORE triggering te generation
         const videoPromise = listenForStream(page);
 
         // Fill prompt
