@@ -85,7 +85,7 @@ async function run(promptArray) {
         const noThanks = await page.waitForSelector('::-p-text(No, thanks)', { timeout: 5000 });
         if (noThanks) await noThanks.click();
     } catch (e) {
-        console.log("Popup not found, continuing...");
+        console.log("Popup not found, continuing.....");
     }
 
     // Navigate to VEO
