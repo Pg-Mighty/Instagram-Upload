@@ -97,7 +97,7 @@ async function run(promptArray) {
     for (let i = 0; i < promptArray.length; i++) {
         console.log(`Processing prompt ${i + 1}/${promptArray.length}`);
 
-        // Start listening BEFORE triggering te generation
+        // Start listening BEFORE triggering the generation
         const videoPromise = listenForStream(page);
 
         // Fill prompt
