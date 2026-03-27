@@ -92,7 +92,7 @@ async function run(promptArray) {
     await page.waitForSelector('button[aria-label="Tools"]');
     await page.click('button[aria-label="Tools"]');
     await new Promise(r => setTimeout(r, 1000));
-    await page.click('::-p-text(Video)');
+    await page.click('::-p-text(Videos)');
 
     for (let i = 0; i < promptArray.length; i++) {
         console.log(`Processing prompt ${i + 1}/${promptArray.length}`);
@@ -110,7 +110,7 @@ async function run(promptArray) {
 
 
         console.log("Waiting for generation...");
-        await new Promise(r => setTimeout(r, 30000)); // 30 sec wait
+        await new Promise(r => setTimeout(r, 60000)); // 60 sec wait
         try {
             const base64Video = await videoPromise;
             videoArray.push(base64Video);
