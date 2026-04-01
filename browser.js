@@ -110,7 +110,7 @@ async function run(promptArray) {
 
 
         console.log("Waiting for generation...");
-        await new Promise(r => setTimeout(r, 60000)); // 60 sec wait
+        await new Promise(r => setTimeout(r, 20000)); // 20 sec wait
         try {
             const base64Video = await videoPromise;
             videoArray.push(base64Video);
@@ -124,6 +124,7 @@ async function run(promptArray) {
     console.log("Generation completed. Uploading...");
     if (videoArray.length > 0) {
         fs.writeFileSync("request.txt", JSON.stringify(videoArray));
+        console.log(videoArray[0]);
         await upload(videoArray);
     }
 
