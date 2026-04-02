@@ -98,7 +98,7 @@ async function run(promptArray) {
         console.log(`Processing prompt ${i + 1}/${promptArray.length}`);
 
         // Start listening BEFORE triggering the generation
-        const videoPromise = listenForStream(page);
+
 
         // Fill prompt
         const inputSelector = 'div[data-placeholder="Describe your video"]';
@@ -112,10 +112,10 @@ async function run(promptArray) {
         console.log("Waiting for generation...");
         await new Promise(r => setTimeout(r, 15000)); // 15 sec wait
         try {
-            const base64Video = await videoPromise;
+            const base64Video = await listenForStream(page);
             videoArray.push(base64Video);
             console.log(`Successfully generated video ${i + 1}`);
-            await new Promise(r=> setTimeout(r, 30000));
+            await new Promise(r=> setTimeout(r, 3000));
         } catch (err) {
             console.error(`Failed to generate video ${i + 1}:`, err.message);
         }
