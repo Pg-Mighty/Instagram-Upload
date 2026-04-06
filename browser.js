@@ -115,7 +115,7 @@ async function run(promptArray) {
             const base64Video = await listenForStream(page);
             videoArray.push(base64Video);
             console.log(`Successfully generated video ${i + 1}`);
-            await new Promise(r=> setTimeout(r, 3000));
+            await new Promise(r=> setTimeout(r, 3000)); //3 sec pause
         } catch (err) {
             console.error(`Failed to generate video ${i + 1}:`, err.message);
         }
