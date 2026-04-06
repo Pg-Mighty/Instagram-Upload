@@ -23,8 +23,8 @@ function listenForStream(page) {
 
         const timeout = setTimeout(() => {
             cleanup();
-            reject(new Error("Timeout: Did not receive the video stream within 125 seconds."));
-        }, 125000);
+            reject(new Error("Timeout: Did not receive the video stream within 160 seconds."));
+        }, 160000);
 
         const cleanup = () => {
             clearTimeout(timeout);
@@ -105,12 +105,12 @@ async function run(promptArray) {
         await page.waitForSelector(inputSelector);
         await page.click(inputSelector);
         await page.keyboard.sendCharacter(promptArray[i]);
-        await new Promise(r => setTimeout(r, 5000));
+        await new Promise(r => setTimeout(r, 3000));
         await page.click('mat-icon[fonticon="send"]');
 
 
         console.log("Waiting for generation...");
-        await new Promise(r => setTimeout(r, 15000)); // 15 sec wait
+        await new Promise(r => setTimeout(r, 16000)); // 16 sec wait
         try {
             const base64Video = await listenForStream(page);
             videoArray.push(base64Video);
