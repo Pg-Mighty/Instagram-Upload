@@ -62,5 +62,53 @@
       }
     ],
     "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of Mars, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Crimson and Rust oozes out."
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of the Milky Way Galaxy, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Silver and Gold oozes out."
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of an Asteroid, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Gray and Dark Green oozes out."
+      }
+    ],
+    "role": "model"
   }
 ]
