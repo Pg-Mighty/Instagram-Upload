@@ -110,7 +110,7 @@ async function run(promptArray) {
 
 
         console.log("Waiting for generation...");
-        await new Promise(r => setTimeout(r, 16000)); // 16 sec wait
+        await new Promise(r => setTimeout(r, 17000)); // 17 sec wait
         try {
             const base64Video = await listenForStream(page);
             videoArray.push(base64Video);
