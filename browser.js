@@ -23,8 +23,8 @@ function listenForStream(page) {
 
         const timeout = setTimeout(() => {
             cleanup();
-            reject(new Error("Timeout: Did not receive the video stream within 160 seconds."));
-        }, 160000);
+            reject(new Error("Timeout: Did not receive the video stream within 180 seconds."));
+        }, 180000);
 
         const cleanup = () => {
             clearTimeout(timeout);
