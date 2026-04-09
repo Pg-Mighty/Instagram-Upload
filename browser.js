@@ -113,7 +113,7 @@ async function run(promptArray) {
         await new Promise(r => setTimeout(r, 17000)); // 17 sec wait
         try {
             const base64Video = await listenForStream(page);
-            console.log(base64Video);
+            console.log(base64Video); //focus on this line
             videoArray.push(base64Video);
             console.log(`Successfully generated video ${i + 1}`);
             await new Promise(r=> setTimeout(r, 3000)); //3 sec pause
