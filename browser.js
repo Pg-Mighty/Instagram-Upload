@@ -37,7 +37,7 @@ function listenForStream(page) {
         };
 
         const onResponse = (event) => {
-            if (event.response.url.includes("https://contribution.usercontent.google.com/download?c=")) {
+            if (event.response.url.includes("https://contribution.usercontent.google.com/download?c=" && event.response.status === 200 )) {
                 targetRequestId = event.requestId;
             }
         };
