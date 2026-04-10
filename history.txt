@@ -158,5 +158,53 @@
       }
     ],
     "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of a Quasar, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Electric Blue and Cyan oozes out."
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of Uranus, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Aqua and Lime Green oozes out."
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Create"
+      }
+    ]
+  },
+  {
+    "parts": [
+      {
+        "text": "A photorealistic, miniature version of a Comet, made as a with glass texture with vibrant colors representing real,bright background is cut by a by a Kitchen knife.Cut the core then reveals some substance of gradient of color Ice Blue and White oozes out."
+      }
+    ],
+    "role": "model"
   }
 ]
